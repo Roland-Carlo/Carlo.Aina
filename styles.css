@@ -272,6 +272,15 @@ main img {
   display: flex;
   align-items: center;
 }
+
+.card--two {
+  gap: 1rem;
+
+  p {
+    line-height: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     max-width: 640px;
