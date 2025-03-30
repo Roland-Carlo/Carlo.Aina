@@ -79,7 +79,7 @@ nav {
 .navigation--block {
   display: flex;
   justify-content: space-between;
-  padding: 0.8vw 2vw;
+  padding: 1.2vw 2vw;
   background-color: var(--primary-text);
   z-index: 10000;
   flex-wrap: wrap;
@@ -96,6 +96,7 @@ nav {
 
 .navigation--block nav a:hover {
   color: var(--highlight);
+  border-bottom: goldenrod 1px solid;
 }
 
 .menu-toggle {
@@ -277,7 +278,7 @@ main img {
   gap: 1rem;
 
   p {
-    line-height: calc(0.8rem + 0.5vw);
+    line-height: calc(1rem + 0.5vw);
   }
 }
 
