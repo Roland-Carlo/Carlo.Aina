@@ -408,7 +408,7 @@ section img {
 
   .nav-menu.active {
     display: flex;
-    height: 75vh;
+    /* height: 75vh; */
   }
 }
 
