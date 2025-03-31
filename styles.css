@@ -323,16 +323,19 @@ section img {
 #go--to--top--button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background: var(--primary-text);
+  right: 6%;
+  background: goldenrod;
   color: var(--primary-bg);
   opacity: 0.5;
   border: none;
-  border-radius: 100px;
+  border-radius: 50%;
   padding: 10px 20px;
   cursor: pointer;
   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.2s linear;
+  width: 4.2rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 
 #go--to--top--button:hover {
