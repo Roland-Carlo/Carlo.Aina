@@ -3,18 +3,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const navMenu = document.getElementById("nav-menu");
   const rsvpButton = document.getElementById("rsvp-button"); // Add RSVP button reference
   const goToTopBTn = document.getElementById("go--to--top--button"); // Go to top button
+  let isScrolling;
 
   window.onscroll = () => {
     scrollFunction();
+
+    // Clear timeout to reset the detection of scroll stop
+    clearTimeout(isScrolling);
+
+    // Set a timeout to hide the button when scrolling stops
+    isScrolling = setTimeout(() => {
+      goToTopBTn.style.display = "none";
+    }, 2000); // Adjust time (500ms) to detect when scrolling stops
   };
+
   function scrollFunction() {
     if (
       document.body.scrollTop > 700 ||
       document.documentElement.scrollTop > 700
     ) {
       goToTopBTn.style.display = "block";
-    } else {
-      goToTopBTn.style.display = "none";
     }
   }
 
