@@ -346,6 +346,10 @@ section img {
   display: none;
 }
 
+.fa-arrow-up {
+  font-size: clamp(1.5rem, 1vw + 0.65rem, 4rem) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 1536px) {
   .container {
