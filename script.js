@@ -2,6 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const navMenu = document.getElementById("nav-menu");
   const rsvpButton = document.getElementById("rsvp-button"); // Add RSVP button reference
+  const goToTopBTn = document.getElementById("go--to--top--button"); // Go to top button
+
+  window.onscroll = () => {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 600 ||
+      document.documentElement.scrollTop > 600
+    ) {
+      goToTopBTn.style.display = "block";
+    } else {
+      goToTopBTn.style.display = "none";
+    }
+  }
+
+  goToTopBTn.onclick = () => {
+    goToTopBTn.style.display = "none";
+    window.scroll({ top: 0 });
+  };
 
   menuToggle.addEventListener("click", function () {
     navMenu.classList.toggle("active");
