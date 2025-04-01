@@ -45,3 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function toggleAnswer(element) {
+  let answer = element.nextElementSibling;
+  let icon = element.querySelector(".icon");
+  let isVisible = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+  document.querySelectorAll(".answer").forEach((ans) => {
+    ans.style.maxHeight = "0";
+    ans.style.padding = "0";
+  });
+  document.querySelectorAll(".icon").forEach((ic) => (ic.textContent = "+"));
+  if (!isVisible) {
+    answer.style.maxHeight = answer.scrollHeight + 20 + "px";
+    answer.style.paddingBottom = "5px 0";
+    icon.textContent = "−";
+  }
+}
