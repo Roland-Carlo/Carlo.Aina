@@ -377,7 +377,7 @@ section img {
     padding: 4vw;
   }
   section {
-    gap: 4rem;
+    gap: 2rem;
   }
   .section--details {
     flex-direction: column;
