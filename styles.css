@@ -43,6 +43,7 @@ body {
 .container {
   /* max-width: 1536px; */
   margin: 0 auto; /* padding: 0 0.5rem; */ /* border: 1px solid lime; */
+  overflow: hidden;
 }
 header {
   min-height: 100vh; /* padding: 0 2rem; */
@@ -244,26 +245,11 @@ p.location--text--two {
 }
 
 .venue--image--holder {
-  height: 500px;
+  height: 450px;
   width: 350px;
   display: flex;
   position: relative;
-
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 }
-
-/* hr {
-  width: 75%;
-  margin: 0 auto;
-} */
-
 /* Section */
 section {
   height: 100vh;
@@ -334,7 +320,6 @@ hr {
 
 .faq-container {
   height: 100vh;
-  max-width: 0%;
   max-width: 600px;
   margin: auto;
   gap: 1.2rem;
@@ -375,6 +360,11 @@ hr {
 .faq-container > h2 {
   font-size: clamp(1rem, 0.5vw + 1.8rem, 5rem);
 }
+
+/* RSVP SECTION */
+/* p.location--text--one.rsvp--text--bottom {
+  letter-spacing: 0.5rem;
+} */
 
 /* FOOTER */
 footer {
@@ -424,6 +414,7 @@ footer {
     flex-direction: column;
   }
 }
+
 /* @media (max-width: 1280px) {
   .container {
     max-width: 1024px;
@@ -442,7 +433,7 @@ footer {
 .card--two {
   gap: 1rem;
   p {
-    line-height: calc(0.8rem + 0.7vw);
+    line-height: clamp(0.9rem, 0.35vw + 1.2rem, 2rem);
   }
 }
 @media (max-width: 768px) {
