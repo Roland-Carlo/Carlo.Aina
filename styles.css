@@ -21,7 +21,7 @@
 } /* Global Styles */
 :root {
   --primary-bg: #fff8f8;
-  --primary-text: #1f1f1f;
+  --primary-text: #23201a;
   --highlight: #daa520;
   --shadow: rgba(31, 31, 31, 0.8);
   --transition: all 0.3s ease-in-out;
@@ -38,7 +38,7 @@ html {
 }
 body {
   background: hsla(40, 17.65%, 96.67%, 1);
-  font-family: "HelveticaNeue", Arial, sans-serif;
+  font-family: "SS-Pro", Arial, sans-serif;
 } /* Layout & Containers */
 .container {
   /* max-width: 1536px; */
@@ -183,7 +183,7 @@ main img {
   flex-direction: column;
   padding: 2rem;
   gap: 2rem;
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: var(--primary-text);
   p {
     text-align: justify;
     color: var(--primary-bg);
@@ -194,7 +194,20 @@ main img {
   h2 {
     color: #daa520;
   }
-} /* Section */
+}
+
+p.location--text--one {
+  letter-spacing: 5px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+p.location--text--two {
+  letter-spacing: 3px;
+  text-align: left;
+}
+
+/* Section */
 section {
   min-height: 100vh;
   display: flex;
@@ -250,41 +263,9 @@ section img {
     letter-spacing: 0.1rem;
     font-size: clamp(0.5rem, 1vw + 0.65rem, 4rem);
   }
-} /* Aside */
-aside {
-  min-height: 100vh;
-  display: flex;
-  gap: 5rem;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 2rem 0;
 }
-.aside--image--container {
-  width: 300px;
-  height: 450px;
-  border: 1px solid lime;
-}
-aside img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.aside--header {
-  width: 500px;
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  gap: 2rem;
-  .aside--text {
-    text-align: center; /* white-space: nowrap; overflow: hidden; */
-    font-size: clamp(1rem, 1vw + 0.3rem, 3rem);
-    letter-spacing: 0.1rem;
-  }
-}
-.aside--header h2 {
-  font-size: clamp(1rem, 1vw + 1rem, 3rem);
-} /* GO TO TOP BUTTON */
+
+/* GO TO TOP BUTTON */
 #go--to--top--button {
   position: fixed;
   bottom: 20px;
@@ -298,7 +279,7 @@ aside img {
   cursor: pointer;
   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.2s linear;
-  width: 4.2rem;
+  width: 3.5rem;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   z-index: 1000;
@@ -310,7 +291,7 @@ aside img {
   display: none;
 }
 .fa-arrow-up {
-  font-size: clamp(1rem, 1vw + 0.65rem, 3rem) !important;
+  font-size: clamp(1rem, 1vw + 0.2rem, 3rem) !important;
 } /* Responsive Design */
 @media (max-width: 1536px) {
   .container {
