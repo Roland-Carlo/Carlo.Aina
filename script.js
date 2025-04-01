@@ -57,7 +57,7 @@ function toggleAnswer(element) {
   document.querySelectorAll(".icon").forEach((ic) => (ic.textContent = "+"));
   if (!isVisible) {
     answer.style.maxHeight = answer.scrollHeight + 20 + "px";
-    answer.style.paddingBottom = "5px 0";
+    answer.style.padding = "10px 0";
     icon.textContent = "−";
   }
 }

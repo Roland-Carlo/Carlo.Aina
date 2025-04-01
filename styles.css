@@ -210,22 +210,22 @@ main img {
 .location--block p:nth-child(1) {
   font-size: clamp(1rem, 0.5vw + 1.8rem, 5rem);
   line-height: 2rem;
-  font-family: "SS-Pro-Bold", Georgia, "Times New Roman", Times, serif;
+  font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
   letter-spacing: 0px;
 }
 
 p.location--text--one {
   letter-spacing: 1px;
   text-align: center;
-  font-weight: bolder;
   color: var(--primary-text);
 }
 
 p.location--text--two {
-  letter-spacing: 1px;
+  letter-spacing: 0.2px;
   text-align: center;
   color: var(--primary-text);
   padding-top: 1rem;
+  font-size: 1.125rem;
 }
 
 .card.card--two.location--card {
@@ -324,6 +324,12 @@ section img {
   }
 }
 
+hr {
+  background-color: #ddd;
+  border: #ddd;
+  height: 1px;
+}
+
 /* FAQ SECTION */
 
 .faq-container {
@@ -347,7 +353,7 @@ section img {
 }
 .question {
   font-size: 18px;
-  /* font-weight: bold; */
+  font-weight: bold;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
