@@ -372,6 +372,19 @@ hr {
   transition: transform 0.3s;
 }
 
+.faq-container > h2 {
+  font-size: clamp(1rem, 0.5vw + 1.8rem, 5rem);
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-text);
+  padding: 1.5rem 0 4rem 0;
+  color: var(--primary-bg);
+}
+
 /* GO TO TOP BUTTON */
 #go--to--top--button {
   position: fixed;
