@@ -292,7 +292,9 @@ section img {
 }
 .fa-arrow-up {
   font-size: clamp(1rem, 1vw + 0.2rem, 3rem) !important;
-} /* Responsive Design */
+}
+
+/* Responsive Design */
 @media (max-width: 1536px) {
   .container {
     max-width: 100%;
