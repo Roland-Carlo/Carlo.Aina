@@ -460,6 +460,10 @@ footer {
   .card {
     height: 50vh;
   }
+
+  .section--details {
+    flex-direction: column;
+  }
 }
 @media (max-width: 640px) {
   .container {
@@ -500,7 +504,7 @@ footer {
   }
   section {
     gap: 2rem;
-    height: 75vh;
+    height: 80vh;
     justify-content: center;
   }
   .section--details {
