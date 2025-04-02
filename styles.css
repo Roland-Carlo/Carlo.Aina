@@ -108,12 +108,12 @@ button {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 } /* Typography */
 h1 {
-  font-size: clamp(2rem, 4vw, 5rem);
+  font-size: clamp(1rem, 2vw + 2rem, 5rem);
   font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
   line-height: 0.7;
   color: var(--highlight);
-  /* text-shadow: 3px 3px 5px var(--shadow);
-  filter: drop-shadow(5px 5px 10px var(--shadow)); */
+  text-shadow: 3px 3px 5px var(--shadow);
+  filter: drop-shadow(5px 5px 10px var(--shadow));
 }
 h2 {
   font-size: clamp(1rem, 2vw, 3rem);
@@ -131,7 +131,7 @@ ul {
 a {
   text-decoration: none;
   color: var(--primary-text);
-  font-size: clamp(1rem, 0.8vw + 0.2rem, 3rem);
+  font-size: clamp(1rem, 0.5vw + 0.85rem, 2rem);
 }
 a.rsvp--button {
   /* font-size: clamp(0.9rem, 0.6vw + 0.5rem, 3rem); */
@@ -188,9 +188,10 @@ main img {
 
   p {
     text-align: justify;
+    text-wrap: no wrap;
     color: var(--primary-bg);
-    font-size: clamp(0.9rem, 0.7vw + 0.5rem, 3rem);
-    line-height: 1.5rem;
+    font-size: clamp(1rem, 0.7vw + 0.5rem, 3rem);
+    line-height: calc(1.2rem + 0.5vw);
     font-family: "SS-Pro", "Verdana", sans-serif;
   }
   h2 {
@@ -209,16 +210,18 @@ main img {
   flex-direction: column;
 }
 .location--block p:nth-child(1) {
-  font-size: clamp(1rem, 0.5vw + 1.8rem, 5rem);
+  font-size: clamp(1rem, 0.75vw + 2.2rem, 4rem);
   line-height: 2rem;
   font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
   letter-spacing: 0px;
+  padding-bottom: 1rem;
 }
 
 p.location--text--one {
   letter-spacing: 1px;
   text-align: center;
   color: var(--primary-text);
+  font-size: clamp(1rem, 0.75vw + 1rem, 1.8rem);
 }
 
 p.location--text--two {
@@ -226,7 +229,11 @@ p.location--text--two {
   text-align: center;
   color: var(--primary-text);
   padding-top: 1rem;
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.5vw + 1rem, 1.5rem);
+}
+
+.location--text.location--text--one.rsvp--text--bottom {
+  font-size: clamp(1rem, 0.75vw + 2rem, 4rem);
 }
 
 .card.card--two.location--card {
@@ -301,7 +308,7 @@ section img {
     flex: 1;
   }
   h2 {
-    font-size: clamp(1.6rem, 2.5vw + 0.8rem, 4rem);
+    font-size: clamp(1.6rem, 2.5vw + 1.2rem, 4rem);
     text-wrap: no wrap;
   }
   span {
@@ -432,9 +439,9 @@ footer {
 }
 .card--two {
   gap: 1rem;
-  p {
+  /* p {
     line-height: clamp(0.9rem, 0.35vw + 1.2rem, 2rem);
-  }
+  } */
 }
 @media (max-width: 768px) {
   .container {
@@ -493,6 +500,8 @@ footer {
   }
   section {
     gap: 2rem;
+    height: 75vh;
+    justify-content: center;
   }
   .section--details {
     flex-direction: column;
