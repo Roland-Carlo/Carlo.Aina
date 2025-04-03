@@ -615,23 +615,24 @@ footer {
 
   #go--to--top--button {
     right: 5%;
-}
-@media (max-width: 475px) {
-  .container {
-    width: 100%;
   }
-  .navigation--block {
-    padding: 4vw;
-  }
-  section {
-    gap: 2rem;
-    height: 100vh;
-    justify-content: center;
-  }
-  .section--details {
-    flex-direction: column;
-  }
-  .section--header .section--main--text {
-    line-height: 2.4rem;
+  @media (max-width: 475px) {
+    .container {
+      width: 100%;
+    }
+    .navigation--block {
+      padding: 4vw;
+    }
+    section {
+      gap: 2rem;
+      height: 100vh;
+      justify-content: flex-start;
+    }
+    .section--details {
+      flex-direction: column;
+    }
+    .section--header .section--main--text {
+      line-height: 2.4rem;
+    }
   }
 }
