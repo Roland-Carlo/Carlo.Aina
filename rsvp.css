@@ -38,7 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  max-width: 1536px;
+  /* max-width: 1536px; */
   background: hsla(40, 17.65%, 96.67%, 1);
   font-family: "SS-Pro", Arial, sans-serif;
   color: var(--primary-text-2);
@@ -46,18 +46,32 @@ body {
 } /* Layout & Containers */
 
 .container {
-  max-width: 1536px;
-  /* margin: 0 auto; */
+  /* max-width: 1536px; */
+  margin: 0 auto;
   overflow: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   background-color: var(--primary-bg);
-  padding: 0 1.2rem;
 }
 
+/* NAVIGATION BAR */
+header {
+  max-width: 650px;
+  position: relative;
+  left: -40%;
+}
+nav {
+  display: flex;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 form {
   /* border: 1px white solid; */
   max-width: 650px;
@@ -117,7 +131,7 @@ p {
 }
 
 .card input {
-  caret-color: var(--primary-text);
+  caret-color: goldenrod;
   height: 2rem;
   width: 300px;
   background-color: transparent;
@@ -151,6 +165,7 @@ textarea {
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
+  padding-bottom: 2rem;
 }
 
 .response--option {
@@ -178,6 +193,7 @@ input::placeholder {
   font-weight: normal;
   opacity: 0.4;
   font-family: "SS-Pro", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
 }
 
 hr {
@@ -186,26 +202,6 @@ hr {
   height: 1px;
   width: 50%;
   margin: 0 auto;
-}
-
-/* NAVIGATION */
-
-header {
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  ul {
-    list-style-type: none;
-
-    li {
-      font-size: clamp(1rem, 0.5vw + 0.85rem, 2rem);
-    }
-
-    a {
-      all: unset;
-    }
-  }
 }
 
 footer {
@@ -238,7 +234,7 @@ footer {
 
 /* RSVP BUTTON */
 
-button {
+.rsvp--button {
   width: auto;
   font-size: clamp(0.5rem, 0.5vw + 0.8rem, 3rem);
   background: var(--primary-text);
@@ -254,7 +250,7 @@ button {
   align-self: center;
 }
 
-button:hover {
+.rsvp--button:hover {
   background: var(--highlight);
   border-color: var(--highlight);
   color: var(--primary-text);
@@ -262,6 +258,23 @@ button:hover {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+button {
+  font-size: clamp(0.5rem, 0.5vw + 0.8rem, 3rem);
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-bg);
+  letter-spacing: 1.2px;
+  content: " ";
+  margin-right: -1.2px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  font-family: "SS-Pro-Bold", "Arial Black", sans-serif;
+  color: var(--primary-text);
+  transition: var(--transition);
+}
+.buttons-block {
+  display: flex;
+  gap: 5rem;
+}
 /* Responsive Design */
 @media (max-width: 1536px) {
   .container {
@@ -295,7 +308,7 @@ button:hover {
   .choice--block {
     /* flex-direction: column; */
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .card input {
@@ -314,5 +327,9 @@ button:hover {
     .card input {
       width: 130px;
     }
+  }
+
+  input::placeholder {
+    font-size: 0.95rem;
   }
 }
