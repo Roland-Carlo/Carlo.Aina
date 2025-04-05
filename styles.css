@@ -1,7 +1,11 @@
 /* Font Imports */
 @font-face {
-  font-family: "Storica";
-  src: url(fonts/Storica-Bold.ttf) format("opentype"); /* font-weight: bold; */
+  font-family: "Wondra";
+  src: url(fonts/Wondra-yYnJ2.otf) format("opentype"); /* font-weight: bold; */
+}
+@font-face {
+  font-family: "Awesome";
+  src: url(fonts/Awesome-Shorten-BF6781e4db99e2b.ttf) format("truetype"); /* font-weight: bold; */
 }
 @font-face {
   font-family: "Silk-Serif";
@@ -18,7 +22,9 @@
 @font-face {
   font-family: "SS-Pro-Bold";
   src: url(fonts/SourceSansPro-Semibold.otf) format("opentype"); /* font-weight: 600; */
-} /* Global Styles */
+}
+
+/* Global Styles */
 :root {
   --primary-bg: #fff8f8;
   --primary-text: #23201a;
@@ -58,7 +64,7 @@ nav {
 .navigation--block {
   display: flex;
   justify-content: space-between;
-  padding: 1.2vw 2vw;
+  padding: 2vw 2vw;
   background-color: var(--primary-text);
   z-index: 10000;
   flex-wrap: wrap;
@@ -114,12 +120,13 @@ button {
 
 /* Typography */
 h1 {
-  font-size: clamp(1rem, 2vw + 2rem, 5rem);
+  font-size: clamp(1rem, 0.5vw + 3rem, 4.5rem);
   font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
   line-height: 0.7;
   color: var(--highlight);
   text-shadow: 3px 3px 5px var(--shadow);
   filter: drop-shadow(5px 5px 10px var(--shadow));
+  font-weight: normal;
 }
 h2 {
   font-size: clamp(1rem, 2vw, 3rem);
@@ -200,6 +207,7 @@ main img {
 .card--two {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 2rem;
   background-color: var(--primary-text);
 
@@ -208,7 +216,6 @@ main img {
     text-wrap: no wrap;
     color: var(--primary-bg);
     font-size: clamp(1rem, 0.7vw + 0.5rem, 3rem);
-    line-height: calc(1.2rem + 0.05vw);
     font-family: "SS-Pro", "Verdana", sans-serif;
   }
   h2 {
@@ -249,6 +256,29 @@ aside.aside--bottom > .aside--card--right {
 
 aside.aside--bottom > .aside--card--left {
   background-color: var(--primary-text);
+}
+
+.aside--image--wrapper {
+  height: 450px;
+  width: 300px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border: 5px white solid;
+}
+
+.aside--image--wrapper h1 {
+  position: absolute;
+  z-index: 5;
+  text-align: center;
+}
+.aside--image--wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
 }
 
 .location--header {
@@ -398,6 +428,7 @@ section img {
   h2 {
     font-size: clamp(1.6rem, 2.5vw + 1.2rem, 4rem);
     text-wrap: no wrap;
+    font-weight: normal;
   }
   span {
     letter-spacing: 0.1rem;
@@ -534,22 +565,26 @@ footer {
   .container {
     max-width: 768px;
   }
-}
-.rsvp--block {
-  display: flex;
-  align-items: center;
-}
+  .rsvp--block {
+    display: flex;
+    align-items: center;
+  }
 
-.card--two {
-  gap: 1rem;
-  p {
-    line-height: 1.125;
+  .card--two {
+    gap: 1rem;
+    p {
+      line-height: 1.1;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .container {
     max-width: 640px;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
   main {
     flex-direction: column-reverse;
@@ -579,8 +614,11 @@ footer {
     flex: 1 0 1;
   }
 
-  p {
-    line-height: calc(1.2rem + 0.05vw);
+  .card--two {
+    gap: 1rem;
+    p {
+      line-height: 1.5;
+    }
   }
 }
 @media (max-width: 640px) {
