@@ -38,6 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  max-width: 1536px;
   background: hsla(40, 17.65%, 96.67%, 1);
   font-family: "SS-Pro", Arial, sans-serif;
   color: var(--primary-text-2);
@@ -45,8 +46,8 @@ body {
 } /* Layout & Containers */
 
 .container {
-  /* max-width: 1536px; */
-  margin: 0 auto;
+  max-width: 1536px;
+  /* margin: 0 auto; */
   overflow: hidden;
   min-height: 100vh;
   display: flex;
@@ -62,7 +63,7 @@ form {
   max-width: 650px;
   display: flex;
   flex-direction: column;
-  padding: 2rem 0 5rem;
+  padding: 3rem;
 
   h1 {
     font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
@@ -118,7 +119,7 @@ p {
 .card input {
   caret-color: var(--primary-text);
   height: 2rem;
-  width: clamp(250px, 0.5vw + 300px, 500px);
+  width: 300px;
   background-color: transparent;
   border-style: solid;
   border: none;
@@ -169,8 +170,7 @@ input[type="radio"] {
   border: 0.15em solid #fff;
   border-radius: 50%;
   align-content: center;
-
-  /* accent-color: var(--highlight); */
+  accent-color: var(--primary-text);
 }
 
 input::placeholder {
@@ -240,7 +240,7 @@ footer {
 
 button {
   width: auto;
-  font-size: clamp(0.5rem, 1.2vw + 0.1rem, 3rem);
+  font-size: clamp(0.5rem, 0.5vw + 0.8rem, 3rem);
   background: var(--primary-text);
   border: 1px solid var(--primary-bg);
   letter-spacing: 1.2px;
@@ -285,16 +285,34 @@ button:hover {
   .container {
     max-width: 640px;
   }
-
-  .name--block,
-  .choice--block {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
 }
 @media (max-width: 640px) {
   .container {
     max-width: 475px;
+  }
+
+  .name--block,
+  .choice--block {
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .card input {
+    width: 150px;
+  }
+
+  .name--block {
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 475px) {
+    .container {
+      max-width: 320px;
+    }
+
+    .card input {
+      width: 130px;
+    }
   }
 }
