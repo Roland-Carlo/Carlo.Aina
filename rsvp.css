@@ -40,7 +40,7 @@ html {
 body {
   background: hsla(40, 17.65%, 96.67%, 1);
   font-family: "SS-Pro", Arial, sans-serif;
-  color: var(--primary-bg);
+  color: var(--primary-text-2);
   /* white-space: nowrap; */
 } /* Layout & Containers */
 
@@ -53,8 +53,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  background-color: var(--primary-text);
+  background-color: var(--primary-bg);
+  padding: 0 1.2rem;
 }
 
 form {
@@ -62,16 +62,23 @@ form {
   max-width: 650px;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0 5rem;
 
   h1 {
     font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
-    letter-spacing: 5px;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    color: var(--primary-text);
+    font-size: clamp(1rem, 1vw + 2rem, 3rem);
+    font-weight: normal;
   }
 }
 
 p {
   font-size: clamp(1rem, 0.7vw + 0.5rem, 3rem);
   letter-spacing: 1px;
+  text-align: just;
+  white-space: none;
 }
 
 .form--header {
@@ -86,6 +93,7 @@ p {
 
 .name--block {
   display: flex;
+  gap: 1rem;
   padding: 1.5rem 0;
   justify-content: space-between;
   align-items: left;
@@ -108,25 +116,26 @@ p {
 }
 
 .card input {
+  caret-color: var(--primary-text);
   height: 2rem;
-  width: 300px;
+  width: clamp(250px, 0.5vw + 300px, 500px);
   background-color: transparent;
   border-style: solid;
   border: none;
-  border-bottom: var(--primary-bg) solid 1px;
+  border-bottom: rgba(221, 221, 221, 0.8) solid 1px;
   transition: background-color 0.3s ease-in-out 0.2s;
   opacity: 1;
-  color: var(--highlight);
-  letter-spacing: 1px;
+  color: var(--primary-text);
 }
 
 .card input:hover {
-  background-color: rgb(103, 103, 103);
+  background-color: var(--primary-bg);
 }
 
 textarea:focus,
 input:focus {
-  color: var(--primary-bg);
+  color: var(--primary-text-2);
+  outline: none;
 }
 
 input,
@@ -146,18 +155,22 @@ textarea {
 .response--option {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type="radio"] {
   background-color: #fff;
   margin: 0;
   font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
+  color: var(--highlight);
+  width: 1.25em;
+  height: 1.25em;
+  border: 0.15em solid #fff;
   border-radius: 50%;
-  accent-color: var(--highlight);
+  align-content: center;
+
+  /* accent-color: var(--highlight); */
 }
 
 input::placeholder {
@@ -167,34 +180,12 @@ input::placeholder {
   font-family: "SS-Pro", Georgia, "Times New Roman", Times, serif;
 }
 
-button {
-  all: unset;
-  font-family: "HelveticaNeue", Georgia, "Times New Roman", Times, serif;
-  text-align: center;
-  letter-spacing: 2px;
-  content: " ";
-  margin-right: -2px;
-  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
-  padding: 0.7rem 0.2rem;
-  width: 100px;
-  align-self: center;
-}
-
-button:hover {
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-  font-weight: bolder;
-}
-
-.button--wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-  max-width: 100px;
-  padding: 0.7rem 0.2rem;
-  margin-top: 2rem;
-  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+hr {
+  background-color: #ddd;
+  border: #ddd;
+  height: 1px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 /* NAVIGATION */
@@ -218,7 +209,57 @@ header {
 }
 
 footer {
-  padding: 1rem 1rem;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  font-size: clamp(0.8rem, 0.5vw + 0.65rem, 4rem);
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--primary-text);
+
+  div {
+    color: var(--primary-bg);
+  }
+}
+
+.footer--image {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.footer--image img {
+  height: 25px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* RSVP BUTTON */
+
+button {
+  width: auto;
+  font-size: clamp(0.5rem, 1.2vw + 0.1rem, 3rem);
+  background: var(--primary-text);
+  border: 1px solid var(--primary-bg);
+  letter-spacing: 1.2px;
+  content: " ";
+  margin-right: -1.2px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  font-family: "SS-Pro-Bold", "Arial Black", sans-serif;
+  color: var(--primary-bg);
+  transition: var(--transition);
+  align-self: center;
+}
+
+button:hover {
+  background: var(--highlight);
+  border-color: var(--highlight);
+  color: var(--primary-text);
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */
