@@ -235,6 +235,7 @@ aside.card {
 }
 
 .aside--card--left {
+  min-height: 100vh;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -242,6 +243,7 @@ aside.card {
 }
 
 .aside--card--right {
+  min-height: 100vh;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -265,7 +267,7 @@ aside.aside--bottom > .aside--card--left {
   position: relative;
   align-items: center;
   justify-content: center;
-  border: 5px white solid;
+  /* border: 5px white solid; */
 }
 
 .aside--image--wrapper h1 {
