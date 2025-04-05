@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSVP</title>
+    <link rel="stylesheet" href="rsvp.css" />
+  </head>
+
+  <body>
+    <div class="container">
+
+      <header>
+        <nav>
+            <ul>
+              <li title="Our Story"><a href="index.html">HOME</a></li>
+            </ul>
+        </nav>
+      </header>
+
+      <form action="send.php" method="POST" onsubmit="return validateContact()">
+          <div class="form--header">
+            <h1>RSVP</h1>
+            <p>As much as we would love to invite everyone, due to limited space, we kindly request that only the invited guests attend and that we adhere to the specified number of attendees.</p>
+            <p>Kindly RSVP by <strong>April 19, 2025</strong></p>
+          </div>
+          <div class="name--block">
+            <div class="card name--card--upper">
+              <p>First Name</p>
+              <input
+                type="text"
+                name="firstname"
+                style="text-transform: uppercase"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="card name--card--lower">
+              <p>Last Name</p>
+              <input
+                type="text"
+                name="lastname"
+                style="text-transform: uppercase"
+                autocomplete="off"
+                autocomplete="off"
+                required
+              />
+            </div>
+          </div>
+
+
+          <div class="name--block">
+            <div class="card contact--card--email">
+              <p>Email</p>
+              <input
+                type="email"
+                name="email"
+                autocomplete="off"
+                placeholder="example@gmail.com"
+
+              />
+            </div>
+            <div class="card contact--card--mobile">
+              <p for="contact">Contact Number:</p>
+              <input
+                type="text"
+                class="form-control"
+                name="contact"
+                id="contact"
+                placeholder="09"
+                maxlength="11"
+                autocomplete="off"
+                required
+              />
+              <small id="error-msg" style="color: red; display: none"
+                >*Please input a VALID mobile number</small
+              >
+            </div>
+          </div>
+
+          <!-- CHOICE BLOCK -->
+          <div class="choice--block">
+            <p>Will you be attending?</p>
+            <div  class="response">
+              <div class="response--option">
+                <input
+                    type="radio"
+                    name="attending"
+                    value="Yes"
+                    onclick="toggleAttendanceOptions()"
+                    required
+                  />
+                <label>Yes</label>
+              </div>
+              <div class="response--option">
+                <input
+                    type="radio"
+                    name="attending"
+                    value="No"
+                    onclick="toggleAttendanceOptions()"
+                    required
+                />
+                <label>No</label>
+              </div>
+            </div>
+            <!-- <div class="button--wrapper"> -->
+            <button type="submit" name="send">SEND</button>
+            <!-- </div> -->
+          </div>
+          <!-- <div class="choice--block">
+              <p>Will you bring a guest?</p>
+              <div class="response">
+                  <div class="response--option">
+                    <input
+                      type="radio"
+                      name="bring_guest"
+                      value="Yes"
+                      id="bringGuestYes"
+                      onclick="toggleGuestFields()"
+                        />
+                    <label>Yes</label>
+                  </div>
+                  <div class="response--option">
+                    <input
+                      type="radio"
+                      name="bring_guest"
+                      value="No"
+                      id="bringGuestNo"
+                      onclick="toggleGuestFields()"/>
+                    <label>No</label>
+                  </div>
+                </div>
+            </div>
+
+          <div class="guest--block">
+            <p>Guest Name</p>
+            <p>First Name</p>
+            <input
+              type="text"
+              name="gfirstname"
+              id="gfirstname"
+              style="text-transform: uppercase"
+              autocomplete="off"
+              autocomplete="off"
+              disabled
+            />
+
+            <p>Last Name</p>
+            <input
+              type="text"
+              name="glastname"
+              id="glastname"
+              style="text-transform: uppercase"
+              autocomplete="off"
+              autocomplete="off"
+              disabled
+            /> -->
+
+
+      </form>
+      <footer>
+
+        Design by Carlo & Aina.
+      </footer>
+
+    <!-- TEXTS DO NOT ACCEPT NUMBERS -->
+    <script>
+      // Select all input[type="text"] elements
+      const textInputs = document.querySelectorAll(
+        'input[type="text"]:not(#contact)'
+      );
+
+      textInputs.forEach((input) => {
+        input.addEventListener("input", () => {
+          input.value = input.value.replace(/[0-9]/g, ""); // Remove numbers
+        });
+      });
+    </script>
+
+    <!-- TOGGLE ATTENDANCE & GUESTS -->
+    <script>
+      function toggleGuestFields() {
+        const bringGuestYes = document.getElementById("bringGuestYes").checked;
+        const gFirstName = document.getElementById("gfirstname");
+        const gLastName = document.getElementById("glastname");
+
+        if (bringGuestYes) {
+          gFirstName.disabled = false;
+          gLastName.disabled = false;
+          gFirstName.required = true;
+          gLastName.required = true;
+        } else {
+          gFirstName.disabled = true;
+          gLastName.disabled = true;
+          gFirstName.required = false;
+          gLastName.required = false;
+          gFirstName.value = "";
+          gLastName.value = "";
+        }
+      }
+
+      function toggleAttendanceOptions() {
+        const attendingYes = document.querySelector(
+          'input[name="attending"][value="Yes"]'
+        ).checked;
+        const bringGuestYes = document.getElementById("bringGuestYes");
+        const bringGuestNo = document.getElementById("bringGuestNo");
+        const gFirstName = document.getElementById("gfirstname");
+        const gLastName = document.getElementById("glastname");
+
+        bringGuestYes.disabled = !attendingYes;
+        bringGuestNo.disabled = !attendingYes;
+
+        // Make bring_guest radios required only if enabled
+        bringGuestYes.required = attendingYes;
+        bringGuestNo.required = attendingYes;
+
+        if (!attendingYes) {
+          bringGuestYes.checked = false;
+          bringGuestNo.checked = false;
+          gFirstName.value = "";
+          gLastName.value = "";
+          gFirstName.disabled = true;
+          gLastName.disabled = true;
+          gFirstName.required = false;
+          gLastName.required = false;
+        }
+
+        toggleGuestFields();
+      }
+    </script>
+
+    <!-- CONTACT NUMBER VALIDATION -->
+    <script>
+      document.getElementById("contact").addEventListener("input", function () {
+        let input = this.value;
+
+        // Remove non-numeric characters
+        input = input.replace(/\D/g, "");
+
+        // Ensure it always starts with "09"
+        if (!input.startsWith("09")) {
+          input = "09";
+        }
+
+        // Limit to exactly 11 digits
+        if (input.length > 11) {
+          input = input.substring(0, 11);
+        }
+
+        // Update input field with corrected value
+        this.value = input;
+      });
+
+      // Function to validate on form submit
+      function validateContact() {
+        let contactInput = document.getElementById("contact").value;
+        let errorMsg = document.getElementById("error-msg");
+
+        if (contactInput.length !== 11) {
+          errorMsg.style.display = "block"; // Show error message
+          return false; // Prevent form submission
+        } else {
+          errorMsg.style.display = "none"; // Hide error message
+          return true; // Allow form submission
+        }
+      }
+    </script>
+
+    <!-- REFRESH -->
+    <script>
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+      }
+    </script>
+  </body>
+</html>

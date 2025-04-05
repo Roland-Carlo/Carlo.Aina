@@ -1,0 +1,259 @@
+/* Font Imports */
+@font-face {
+  font-family: "Storica";
+  src: url(fonts/Storica-Bold.ttf) format("opentype"); /* font-weight: bold; */
+}
+@font-face {
+  font-family: "Silk-Serif";
+  src: url(fonts/SilkSerif-Regular.ttf) format("truetype"); /* font-weight: bold; */
+}
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(fonts/HelveticaNeueLight.otf) format("opentype"); /* font-weight: 300; */
+}
+@font-face {
+  font-family: "SS-Pro";
+  src: url(fonts/SourceSansPro-Light.otf) format("opentype"); /* font-weight: 300; */
+}
+@font-face {
+  font-family: "SS-Pro-Bold";
+  src: url(fonts/SourceSansPro-Semibold.otf) format("opentype"); /* font-weight: 600; */
+} /* Global Styles */
+:root {
+  --primary-bg: #fff8f8;
+  --primary-text-2: #23201a;
+  --primary-text: #1f1f1f;
+  --highlight: #daa520;
+  --shadow: rgba(31, 31, 31, 0.8);
+  --transition: all 0.3s ease-in-out;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: hsla(40, 17.65%, 96.67%, 1);
+  font-family: "SS-Pro", Arial, sans-serif;
+  color: var(--primary-bg);
+  /* white-space: nowrap; */
+} /* Layout & Containers */
+
+.container {
+  /* max-width: 1536px; */
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-text);
+}
+
+form {
+  /* border: 1px white solid; */
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: "Silk-Serif", Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 5px;
+  }
+}
+
+p {
+  font-size: clamp(1rem, 0.7vw + 0.5rem, 3rem);
+  letter-spacing: 1px;
+}
+
+.form--header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.name--block {
+  display: flex;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid lime; */
+}
+
+.choice--block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  /* border: 1px red solid; */
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.card input {
+  height: 2rem;
+  width: 300px;
+  background-color: transparent;
+  border-style: solid;
+  border: none;
+  border-bottom: var(--primary-bg) solid 1px;
+  transition: background-color 0.3s ease-in-out 0.2s;
+  opacity: 1;
+  color: var(--highlight);
+  letter-spacing: 1px;
+}
+
+.card input:hover {
+  background-color: rgb(103, 103, 103);
+}
+
+textarea:focus,
+input:focus {
+  color: var(--primary-bg);
+}
+
+input,
+select,
+textarea {
+  color: #fff8f8;
+  font-size: clamp(1rem, 0.5vw + 0.85rem, 2rem);
+  font-family: "SS-Pro-Bold", Georgia, "Times New Roman", Times, serif;
+}
+
+.response {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.response--option {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input[type="radio"] {
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  accent-color: var(--highlight);
+}
+
+input::placeholder {
+  color: gray;
+  font-weight: normal;
+  opacity: 0.4;
+  font-family: "SS-Pro", Georgia, "Times New Roman", Times, serif;
+}
+
+button {
+  all: unset;
+  font-family: "HelveticaNeue", Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  letter-spacing: 2px;
+  content: " ";
+  margin-right: -2px;
+  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+  padding: 0.7rem 0.2rem;
+  width: 100px;
+  align-self: center;
+}
+
+button:hover {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-weight: bolder;
+}
+
+.button--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  max-width: 100px;
+  padding: 0.7rem 0.2rem;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* NAVIGATION */
+
+header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ul {
+    list-style-type: none;
+
+    li {
+      font-size: clamp(1rem, 0.5vw + 0.85rem, 2rem);
+    }
+
+    a {
+      all: unset;
+    }
+  }
+}
+
+footer {
+  padding: 1rem 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* @media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+} */
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .name--block,
+  .choice--block {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+}
