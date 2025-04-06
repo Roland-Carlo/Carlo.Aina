@@ -5,6 +5,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const goToTopBTn = document.getElementById("go--to--top--button"); // Go to top button
   let isScrolling;
 
+  // slider
+
+  const indicators = document.querySelectorAll(".indicator");
+  const slides = document.querySelector(".slides");
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      // Remove active class from all indicators
+      indicators.forEach((ind) => ind.classList.remove("active"));
+
+      // Add active class to clicked indicator
+      indicator.classList.add("active");
+
+      // Move the slides to the corresponding position
+      slides.style.transition = "margin-left 1s ease-in-out"; // Apply smooth transition for manual sliding
+      slides.style.marginLeft = `-${index * 100}%`;
+    });
+  });
+
+  // Set the first indicator as active on load
+  indicators[0].classList.add("active");
+
   window.onscroll = () => {
     scrollFunction();
 
