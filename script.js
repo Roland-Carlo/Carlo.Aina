@@ -8,37 +8,37 @@ document.addEventListener("DOMContentLoaded", function () {
   // slider
 
   const indicators = document.querySelectorAll(".indicator");
-  const slides = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slides img");
   let currentSlide = 0;
   let totalSlides = indicators.length;
   let slideInterval;
 
   function goToSlide(index) {
+    // Hide all slides
+    slides.forEach((slide) => slide.classList.remove("active"));
+
     // Reset active indicators
     indicators.forEach((ind) => ind.classList.remove("active"));
-    indicators[index].classList.add("active");
 
-    // Slide movement
-    slides.style.transition = "margin-left 1s ease-in-out";
-    slides.style.marginLeft = `-${index * 100}%`;
+    // Show current slide and indicator
+    slides[index].classList.add("active");
+    indicators[index].classList.add("active");
 
     currentSlide = index;
   }
 
-  // Auto slide function
   function startAutoSlide() {
     slideInterval = setInterval(() => {
       let nextSlide = (currentSlide + 1) % totalSlides;
       goToSlide(nextSlide);
-    }, 5000); // 5 seconds per slide
+    }, 5000); // 5 seconds
   }
 
-  // Manual indicator click
   indicators.forEach((indicator, index) => {
     indicator.addEventListener("click", () => {
-      clearInterval(slideInterval); // Stop auto on manual click
+      clearInterval(slideInterval);
       goToSlide(index);
-      startAutoSlide(); // Restart auto after click
+      startAutoSlide();
     });
   });
 
