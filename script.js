@@ -14,24 +14,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let slideInterval;
 
   function goToSlide(index) {
-    // Hide all slides
     slides.forEach((slide) => slide.classList.remove("active"));
-
-    // Reset active indicators
     indicators.forEach((ind) => ind.classList.remove("active"));
-
-    // Show current slide and indicator
     slides[index].classList.add("active");
     indicators[index].classList.add("active");
-
     currentSlide = index;
   }
 
+  function nextSlide() {
+    let next = (currentSlide + 1) % totalSlides;
+    goToSlide(next);
+  }
+
+  function prevSlide() {
+    let prev = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(prev);
+  }
+
   function startAutoSlide() {
-    slideInterval = setInterval(() => {
-      let nextSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(nextSlide);
-    }, 5000); // 5 seconds
+    slideInterval = setInterval(nextSlide, 5000);
   }
 
   indicators.forEach((indicator, index) => {
@@ -42,7 +43,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Initialize
+  // Swipe Detection
+  let startX = 0;
+  let endX = 0;
+
+  const slider = document.querySelector(".slider");
+
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const threshold = 50; // Minimum swipe distance
+    const diff = endX - startX;
+
+    if (Math.abs(diff) > threshold) {
+      clearInterval(slideInterval);
+      if (diff > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      startAutoSlide();
+    }
+  }
+
+  // Init
   goToSlide(0);
   startAutoSlide();
 
