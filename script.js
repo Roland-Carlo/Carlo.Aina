@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Init
   goToSlide(0);
   startAutoSlide();
-
+  // End Slider //
   window.onscroll = () => {
     scrollFunction();
 
