@@ -9,23 +9,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const indicators = document.querySelectorAll(".indicator");
   const slides = document.querySelector(".slides");
+  let currentSlide = 0;
+  let totalSlides = indicators.length;
+  let slideInterval;
 
+  function goToSlide(index) {
+    // Reset active indicators
+    indicators.forEach((ind) => ind.classList.remove("active"));
+    indicators[index].classList.add("active");
+
+    // Slide movement
+    slides.style.transition = "margin-left 1s ease-in-out";
+    slides.style.marginLeft = `-${index * 100}%`;
+
+    currentSlide = index;
+  }
+
+  // Auto slide function
+  function startAutoSlide() {
+    slideInterval = setInterval(() => {
+      let nextSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(nextSlide);
+    }, 5000); // 5 seconds per slide
+  }
+
+  // Manual indicator click
   indicators.forEach((indicator, index) => {
     indicator.addEventListener("click", () => {
-      // Remove active class from all indicators
-      indicators.forEach((ind) => ind.classList.remove("active"));
-
-      // Add active class to clicked indicator
-      indicator.classList.add("active");
-
-      // Move the slides to the corresponding position
-      slides.style.transition = "margin-left 1s ease-in-out"; // Apply smooth transition for manual sliding
-      slides.style.marginLeft = `-${index * 100}%`;
+      clearInterval(slideInterval); // Stop auto on manual click
+      goToSlide(index);
+      startAutoSlide(); // Restart auto after click
     });
   });
 
-  // Set the first indicator as active on load
-  indicators[0].classList.add("active");
+  // Initialize
+  goToSlide(0);
+  startAutoSlide();
 
   window.onscroll = () => {
     scrollFunction();

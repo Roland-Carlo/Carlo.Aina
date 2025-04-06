@@ -231,15 +231,15 @@ main img {
   margin: 50px auto;
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .slides {
   display: flex;
-  width: 1000%; /* Adjusted width for 10 slides */
+  width: 1000%; /* 10 slides */
   height: 100%;
-  transition: margin-left 1s ease-in-out; /* Smooth transition for manual sliding */
+  transition: margin-left 1s ease-in-out;
 }
 
 .slides img {
@@ -744,6 +744,40 @@ footer {
     .aside--image--wrapper {
       height: 60vh;
       width: 65vw;
+    }
+
+    .slider {
+      max-width: 95%;
+      height: 200px;
+      margin: 20px auto;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+    }
+
+    .indicator-container {
+      bottom: 10px;
+      gap: 6px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .slider {
+      max-width: 100%;
+      height: 180px;
+      margin: 15px auto;
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+    }
+
+    .indicator-container {
+      bottom: 8px;
+      gap: 4px;
     }
   }
 }
